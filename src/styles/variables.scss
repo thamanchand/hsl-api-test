@@ -1,0 +1,55 @@
+// Colors - only few colors are used in the app
+$dark: #333333;    // Primary color
+$gray: #999999;    // Secondary text
+$blue: #41B6E6;    // Accents and borders
+$white: #FFFFFF;   // Backgrounds
+$light-gray: #EDEDED; // Light gray background
+$light: #F8F8F8; // Light gray background
+// Semantic Colors
+$text-primary: $dark;
+$text-secondary: $gray;
+$border-color: $blue;
+$background-primary: $white;
+$error-color: #dc3545; 
+
+// Gradients
+$gradient-tech: linear-gradient(90deg, $dark 0%, $blue 100%);
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// Border radius
+$border-radius-sm: 6px;
+$border-radius-md: 12px;
+$border-radius-lg: 12px;
+
+// Shadows
+$shadow-sm: 0 4px 8px rgba($dark, 0.1);
+$shadow-md: 0 6px 12px rgba($dark, 0.15);
+$shadow-lg: 0 10px 15px rgba($dark, 0.1);
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Z-index
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// Zone Colors
+$zone-a: #007AC9;  // HSL Blue
+$zone-b: #00985F;  // HSL Green
+$zone-c: #CA4081;  // HSL Pink
+$zone-d: #8B4B99;  // HSL Purple
+$zone-unknown: #666666; // Gray for unknown zones 

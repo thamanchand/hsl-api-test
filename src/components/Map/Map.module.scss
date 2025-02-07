@@ -1,0 +1,21 @@
+@use "../../styles/variables" as variables;
+
+.mapContainer {
+  height: 560px;
+  border-radius: variables.$border-radius-md;
+  overflow: hidden;
+  box-shadow: variables.$shadow-sm;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(variables.$dark, 0.5); 
+  text-align: center;
+  padding: 10px;
+  z-index: 1000; 
+  font-size: 16px;
+  color: variables.$background-primary;
+} 

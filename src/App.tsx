@@ -1,35 +1,93 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import "leaflet/dist/leaflet.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+import BusStopList from "./components/BusStopList";
+import Map from "./components/Map";
+import SearchControls from "./components/SearchControls";
+import { DEFAULT_POSITION } from "./constants";
+import { useStopsData } from "./hooks/useStopsData";
+import { useStopsFilter } from "./hooks/useStopsFilter";
+
+import styles from "./App.module.scss";
+
+const App = () => {
+  const [mapPosition, setMapPosition] = useState<[number, number]>([
+    DEFAULT_POSITION.lat,
+    DEFAULT_POSITION.lng,
+  ]);
+
+  const { stops, isDataFetching, error, fetchStops } = useStopsData();
+  const {
+    searchQuery,
+    setSearchQuery,
+    distanceFilter,
+    setDistanceFilter,
+    sortOrder,
+    setSortOrder,
+    searchedLocation,
+    setSearchedLocation,
+    filteredAndSortedStops,
+  } = useStopsFilter(stops);
+
+  useEffect(() => {
+    fetchStops(mapPosition);
+  }, [fetchStops, mapPosition]);
+
+  const handleSearchSubmit = () => {
+    if (searchQuery) {
+      const filteredStops = stops.filter((stop) =>
+        stop.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+
+      if (filteredStops.length > 0) {
+        const firstStop = filteredStops[0];
+        if (
+          typeof firstStop.lat === "number" &&
+          typeof firstStop.lon === "number"
+        ) {
+          setMapPosition([firstStop.lat, firstStop.lon]);
+        }
+        setSearchedLocation(searchQuery);
+      }
+    } else {
+      setSearchedLocation("");
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className={styles.app}>
+      <header className={styles.header}>
+        <h2>StopSpotter</h2>
+        <SearchControls
+          searchQuery={searchQuery}
+          onSearchChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setSearchQuery(e.target.value)
+          }
+          onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) =>
+            e.key === "Enter" && handleSearchSubmit()
+          }
+          distanceFilter={distanceFilter}
+          onDistanceFilterChange={setDistanceFilter}
+          sortOrder={sortOrder}
+          onSortOrderChange={setSortOrder}
+        />
+      </header>
+      <main className={styles.main}>
+        {error && <div className={styles.error}>{error}</div>}
+        <BusStopList
+          stops={filteredAndSortedStops}
+          loading={isDataFetching}
+          position={mapPosition}
+          locationName={searchedLocation}
+        />
+        <Map
+          position={mapPosition}
+          onPositionChange={setMapPosition}
+          stops={filteredAndSortedStops}
+        />
+      </main>
+    </div>
+  );
+};
 
-export default App
+export default App;
