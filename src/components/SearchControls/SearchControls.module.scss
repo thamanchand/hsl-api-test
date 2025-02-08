@@ -18,7 +18,7 @@
   padding: 0 variables.$spacing-sm;
   border: 1px solid rgba(variables.$dark, 0.1);
   border-radius: variables.$border-radius-sm;
-  font-size: 15px;
+  font-size: variables.$text-base;
 
   &:focus {
     border-color: variables.$blue;
@@ -33,8 +33,8 @@
 
 .filterLabel {
   color: variables.$text-primary;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: variables.$text-base;
+  font-weight: variables.$font-semibold;
   margin: 10px;
 }
 
@@ -43,7 +43,7 @@
   padding: 0 32px 0 variables.$spacing-sm;
   border: 1px solid rgba(variables.$dark, 0.1);
   border-radius: variables.$border-radius-sm;
-  font-size: 14px;
+  font-size: variables.$text-sm;
   color: variables.$text-primary;
   background-color: white;
   cursor: pointer;

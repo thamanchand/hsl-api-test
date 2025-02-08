@@ -20,8 +20,8 @@
 
   h2 {
     color: variables.$text-primary;
-    font-size: 22px;
-    font-weight: 700;
+    font-size: variables.$text-2xl;
+    font-weight: variables.$font-bold;
     white-space: nowrap;
     margin: 0;
   }
@@ -112,7 +112,7 @@
 
 .error {
   color: variables.$error-color;
-  font-size: 16px;
+  font-size: variables.$text-base;
   margin-bottom: variables.$spacing-sm;
 }
 

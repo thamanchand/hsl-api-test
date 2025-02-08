@@ -11,6 +11,21 @@ $text-primary: $dark;
 $text-secondary: $gray;
 $error-color: #dc3545;
 
+// Font sizes
+$text-xs: 12px;    // Very small text
+$text-sm: 14px;    // Small text, secondary info
+$text-base: 16px;  // Base body text
+$text-lg: 18px;    // Large text, important info
+$text-xl: 20px;    // Extra large text, section headers
+$text-2xl: 22px;   // Heading text
+$text-3xl: 26px;   // Main heading text
+
+// Font weights
+$font-normal: 400;
+$font-medium: 500;
+$font-semibold: 600;
+$font-bold: 700;
+
 // Spacing
 $spacing-xs: 4px;
 $spacing-sm: 8px;

@@ -24,7 +24,7 @@
   @include mixins.flex-center;
   height: 100%;
   color: variables.$text-secondary;
-  font-size: 16px;
+  font-size: variables.$text-base;
 }
 
 .loading {
@@ -51,15 +51,15 @@
 
   h3 {
     color: variables.$text-primary;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: variables.$text-xl;
+    font-weight: variables.$font-semibold;
     white-space: nowrap;
     margin: 6px;
   }
 
   .addressText {
     color: variables.$text-primary;
-    font-size: 18px;
+    font-size: variables.$text-lg;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

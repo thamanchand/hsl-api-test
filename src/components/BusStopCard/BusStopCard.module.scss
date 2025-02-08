@@ -26,20 +26,20 @@
 
 .stopName {
   margin: 0;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: variables.$text-lg;
+  font-weight: variables.$font-semibold;
   color: variables.$text-primary;
 }
 
 .stopDistance {
   margin: 0;
-  font-size: 16px;
+  font-size: variables.$text-base;
   color: variables.$gray;
 }
 
 .zoneText {
   color: variables.$text-secondary;
-  font-size: 16px;
+  font-size: variables.$text-base;
   margin-left: auto;
 }
 

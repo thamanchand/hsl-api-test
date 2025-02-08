@@ -16,7 +16,7 @@
   text-align: center;
   padding: 10px;
   z-index: 1000; 
-  font-size: 16px;
+  font-size: variables.$text-base;;
   color: variables.$light;
-  font-weight: 600;
+  font-weight: variables.$font-semibold;
 } 
