@@ -1,14 +1,15 @@
-import { DISTANCE_FILTERS } from "../../constants";
-import styles from "./SearchControls.module.scss";
+import { DISTANCE_FILTERS } from '../../../constants';
+
+import styles from './SearchControls.module.scss';
 
 interface SearchControlsProps {
   searchQuery: string;
-  onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onKeyPress: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  onSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onKeyPress: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   distanceFilter: number;
-  onDistanceFilterChange: (value: number) => void;
-  sortOrder: "asc" | "desc";
-  onSortOrderChange: (value: "asc" | "desc") => void;
+  onDistanceFilterChange: (val: number) => void;
+  sortOrder: 'asc' | 'desc';
+  onSortOrderChange: (val: 'asc' | 'desc') => void;
 }
 
 const SearchControls = ({
@@ -49,7 +50,7 @@ const SearchControls = ({
         <select
           className={styles.filterSelect}
           value={sortOrder}
-          onChange={(e) => onSortOrderChange(e.target.value as "asc" | "desc")}
+          onChange={(e) => onSortOrderChange(e.target.value as 'asc' | 'desc')}
         >
           <option value="asc">Nearest first</option>
           <option value="desc">Farthest first</option>

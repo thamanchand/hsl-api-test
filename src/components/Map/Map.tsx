@@ -1,18 +1,20 @@
-import L from "leaflet";
-import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
-import styles from "./Map.module.scss";
-import { DEFAULT_POSITION } from "../../constants";
-import { Stop } from "../../types/busStop";
+import L from 'leaflet';
+import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
+
+import { DEFAULT_POSITION } from '../../constants';
+import { Stop } from '../../types/busStop';
+
+import styles from './Map.module.scss';
 
 interface MapProps {
   position: [number, number];
-  onPositionChange: (position: [number, number]) => void;
+  onPositionChange: (newPos: [number, number]) => void;
   stops?: Stop[];
 }
 
 // Custom marker icon for bus stops
 const busStopIcon = L.icon({
-  iconUrl: "/bus-marker.png",
+  iconUrl: '/bus-marker.png',
   iconSize: [25, 25],
   iconAnchor: [12, 12],
   popupAnchor: [0, -12],
@@ -21,14 +23,13 @@ const busStopIcon = L.icon({
 const MapComponent = ({
   onPositionChange,
 }: {
-  position: [number, number];
-  onPositionChange: (pos: [number, number]) => void;
+  onPositionChange: (newPos: [number, number]) => void;
 }) => {
   useMapEvents({
-    moveend: (event) => {
-      const map = event.target;
-      const newCenter = map.getCenter();
-      onPositionChange([newCenter.lat, newCenter.lng]);
+    moveend: (e) => {
+      const map = e.target;
+      const center = map.getCenter();
+      onPositionChange([center.lat, center.lng]);
     },
   });
 
@@ -45,7 +46,7 @@ const Map = ({
       <MapContainer
         center={position}
         zoom={15}
-        style={{ height: "100%", width: "100%", position: "relative" }}
+        style={{ height: '100%', width: '100%', position: 'relative' }}
       >
         <div className={styles.overlay}>
           Find nearby bus stops by dragging the map or moving the marker.
@@ -66,16 +67,12 @@ const Map = ({
             },
           }}
         />
-        <MapComponent position={position} onPositionChange={onPositionChange} />
+        <MapComponent onPositionChange={onPositionChange} />
 
         {/* Bus stop markers */}
         {stops.map((stop) =>
           stop.lat && stop.lon ? (
-            <Marker
-              key={stop.gtfsId}
-              position={[stop.lat, stop.lon]}
-              icon={busStopIcon}
-            ></Marker>
+            <Marker key={stop.gtfsId} position={[stop.lat, stop.lon]} icon={busStopIcon}></Marker>
           ) : null
         )}
       </MapContainer>

@@ -1,7 +1,8 @@
-import styles from "./BusStopList.module.scss";
-import BusStopCard from "../BusStopCard/BusStopCard";
-import { Stop } from "../../types/busStop";
 import { useReverseGeocode } from "../../hooks/useReverseGeocode";
+import { Stop } from "../../types/busStop";
+import BusStopCard from "../BusStopCard/BusStopCard";
+
+import styles from "./BusStopList.module.scss";
 
 interface BusStopListProps {
   stops: Stop[];

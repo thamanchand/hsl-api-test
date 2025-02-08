@@ -1,10 +1,11 @@
-import { fetchGraphQL } from "./client";
 import {
   Position,
   Stop,
   StopsByRadiusResponse,
   StationsByNameResponse,
 } from "../types/busStop";
+
+import { fetchGraphQL } from "./client";
 
 export const getNearbyStops = async (position: Position): Promise<Stop[]> => {
   const query = `

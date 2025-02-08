@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
-import { Position } from "../types";
+
 import { DEFAULT_POSITION } from "../constants";
+import { Position } from "../types";
 
 export const useMapPosition = () => {
   const [position, setPosition] = useState<Position>(DEFAULT_POSITION);

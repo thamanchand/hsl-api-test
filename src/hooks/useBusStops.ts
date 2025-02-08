@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+
 import { getNearbyStops } from "../api/busStops";
 import { Position, Stop } from "../types/busStop";
 

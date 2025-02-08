@@ -1,10 +1,6 @@
-import { fetchGraphQL } from "./client";
-import {
-  Position,
-  Stop,
-  StopsByRadiusResponse,
-  Station,
-} from "../../types/busStop";
+import { Position, Stop, StopsByRadiusResponse, Station } from '../../types/busStop';
+
+import { fetchGraphQL } from './client';
 
 export const getNearbyStops = async (position: Position): Promise<Stop[]> => {
   const query = `
@@ -33,7 +29,7 @@ export const getNearbyStops = async (position: Position): Promise<Stop[]> => {
     const data = await fetchGraphQL<StopsByRadiusResponse>(query, variables);
 
     if (!data || !data.data || !data.data.stopsByRadius) {
-      console.error("Invalid response structure:", data);
+      console.error('Invalid response structure:', data);
       return [];
     }
 
@@ -42,7 +38,7 @@ export const getNearbyStops = async (position: Position): Promise<Stop[]> => {
       distance: edge.node.distance,
     }));
   } catch (error) {
-    console.error("Error fetching nearby stops:", error);
+    console.error('Error fetching nearby stops:', error);
     return [];
   }
 };
@@ -70,19 +66,16 @@ export const getStationsByName = async (name: string): Promise<Stop[]> => {
   };
 
   try {
-    const response = await fetchGraphQL<{ data: { stations: Station[] } }>(
-      query,
-      variables
-    );
+    const response = await fetchGraphQL<{ data: { stations: Station[] } }>(query, variables);
 
     if (!response || !response.data || !response.data.stations) {
-      console.error("Invalid response structure:", response);
+      console.error('Invalid response structure:', response);
       return [];
     }
 
     return response.data.stations.flatMap((station) => station.stops);
   } catch (error) {
-    console.error("Error fetching stations by name:", error);
+    console.error('Error fetching stations by name:', error);
     return [];
   }
 };

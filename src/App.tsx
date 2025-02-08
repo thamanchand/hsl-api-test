@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
-import "leaflet/dist/leaflet.css";
+import { useEffect, useState } from 'react';
+import 'leaflet/dist/leaflet.css';
 
-import BusStopList from "./components/BusStopList";
-import Map from "./components/Map";
-import SearchControls from "./components/SearchControls";
-import { DEFAULT_POSITION } from "./constants";
-import { useStopsData } from "./hooks/useStopsData";
-import { useStopsFilter } from "./hooks/useStopsFilter";
-
-import styles from "./App.module.scss";
+import styles from './App.module.scss';
+import BusStopList from './components/BusStopList';
+import Map from './components/Map';
+import SearchControls from './components/common/SearchControls';
+import { DEFAULT_POSITION } from './constants';
+import { useStopsData } from './hooks/useStopsData';
+import { useStopsFilter } from './hooks/useStopsFilter';
 
 const App = () => {
   const [mapPosition, setMapPosition] = useState<[number, number]>([
@@ -41,16 +40,13 @@ const App = () => {
 
       if (filteredStops.length > 0) {
         const firstStop = filteredStops[0];
-        if (
-          typeof firstStop.lat === "number" &&
-          typeof firstStop.lon === "number"
-        ) {
+        if (typeof firstStop.lat === 'number' && typeof firstStop.lon === 'number') {
           setMapPosition([firstStop.lat, firstStop.lon]);
         }
         setSearchedLocation(searchQuery);
       }
     } else {
-      setSearchedLocation("");
+      setSearchedLocation('');
     }
   };
 
@@ -64,7 +60,7 @@ const App = () => {
             setSearchQuery(e.target.value)
           }
           onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) =>
-            e.key === "Enter" && handleSearchSubmit()
+            e.key === 'Enter' && handleSearchSubmit()
           }
           distanceFilter={distanceFilter}
           onDistanceFilterChange={setDistanceFilter}

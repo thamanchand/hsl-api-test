@@ -1,6 +1,7 @@
-import styles from "./BusStopCard.module.scss";
 import { Stop } from "../../types/busStop";
 import Zone from "../Zone";
+
+import styles from "./BusStopCard.module.scss";
 
 interface BusStopCardProps {
   stop: Stop;

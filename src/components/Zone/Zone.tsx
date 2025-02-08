@@ -1,4 +1,5 @@
 import Chip from "../common/Chip";
+
 import styles from "./Zone.module.scss";
 
 interface ZoneProps {

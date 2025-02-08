@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+
 import { Stop } from "../types/busStop";
 
 export const useStopsFilter = (stops: Stop[]) => {
