@@ -1,7 +1,7 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback } from 'react';
 
-import { getNearbyStops } from "../api/busStops";
-import { Position, Stop } from "../types/busStop";
+import { getNearbyStops } from '../services/api/busStops';
+import { Stop } from '../types/busStop';
 
 export const useStopsData = () => {
   const [stops, setStops] = useState<Stop[]>([]);
@@ -15,16 +15,13 @@ export const useStopsData = () => {
     setError(null);
 
     try {
-      const positionData: Position = {
+      const data = await getNearbyStops({
         latitude: position[0],
         longitude: position[1],
-      };
-      const data = await getNearbyStops(positionData);
+      });
       setStops(data);
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : "An unknown error occurred"
-      );
+      setError(err instanceof Error ? err.message : 'An unknown error occurred');
     } finally {
       setIsDataFetching(false);
     }

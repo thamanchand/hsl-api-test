@@ -1,8 +1,8 @@
-import { useReverseGeocode } from "../../hooks/useReverseGeocode";
-import { Stop } from "../../types/busStop";
-import BusStopCard from "../BusStopCard/BusStopCard";
+import { useReverseGeocode } from '../../hooks/useReverseGeocode';
+import { Stop } from '../../types/busStop';
+import BusStopCard from '../BusStopCard/BusStopCard';
 
-import styles from "./BusStopList.module.scss";
+import styles from './BusStopList.module.scss';
 
 interface BusStopListProps {
   stops: Stop[];
@@ -11,33 +11,35 @@ interface BusStopListProps {
   locationName?: string;
 }
 
-const BusStopList = ({
-  stops,
-  loading,
-  position,
-  locationName,
-}: BusStopListProps) => {
+const BusStopList = ({ stops, loading, position, locationName }: BusStopListProps) => {
   const { address, isLoading: isAddressLoading } = useReverseGeocode(position);
 
   return (
     <div className={styles.results}>
       {(address || locationName) && (
         <div className={styles.currentLocation}>
-          <h3>Stops nearby: </h3>
-          <text className={styles.addressText}>{locationName || address}</text>
+          <h3>Stops nearby:</h3>
+          <p className={styles.addressText}>{locationName || address}</p>
         </div>
       )}
-      {loading || isAddressLoading ? (
-        <div className={styles.loading}>
-          <text className={styles.loadingText}>Loading...</text>
-        </div>
-      ) : stops.length === 0 ? (
+
+      {loading ||
+        (isAddressLoading && (
+          <div className={styles.loading}>
+            <p className={styles.loadingText}>Loading...</p>
+          </div>
+        ))}
+
+      {!loading && !isAddressLoading && stops.length === 0 && (
         <div className={styles.noStops}>
-          <text className={styles.noStopsText}>No nearby stops found</text>
+          <p className={styles.noStopsText}>No nearby stops found</p>
         </div>
-      ) : (
-        stops.map((stop) => <BusStopCard key={stop.gtfsId} stop={stop} />)
       )}
+
+      {!loading &&
+        !isAddressLoading &&
+        stops.length > 0 &&
+        stops.map((stop) => <BusStopCard key={stop.gtfsId} stop={stop} />)}
     </div>
   );
 };

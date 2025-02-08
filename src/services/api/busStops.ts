@@ -11,6 +11,11 @@ export const getNearbyStops = async (position: Position): Promise<Stop[]> => {
             stop {
               gtfsId
               name
+              code
+              platformCode
+              lat
+              lon
+              zoneId
             }
             distance
           }
