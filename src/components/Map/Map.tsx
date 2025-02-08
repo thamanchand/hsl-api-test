@@ -36,7 +36,7 @@ const MapComponent = ({
 };
 
 const Map = ({
-  position = DEFAULT_POSITION,
+  position = [DEFAULT_POSITION.lat, DEFAULT_POSITION.lng],
   onPositionChange,
   stops = [],
 }: MapProps) => {

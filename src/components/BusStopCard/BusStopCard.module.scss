@@ -8,16 +8,8 @@
   padding: variables.$spacing-md;
   display: flex;
   margin: variables.$spacing-xs;
-  justify-content: space-between;
-  align-items: center;
   box-shadow: variables.$shadow-sm;
   @include mixins.card-hover;
-  gap: variables.$spacing-xs;
-}
-.stopHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .stopInfo {
@@ -42,7 +34,6 @@
 .stopDistance {
   margin: 0;
   font-size: 16px;
-  font-weight: 400;
   color: variables.$gray;
 }
 

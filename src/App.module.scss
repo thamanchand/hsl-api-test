@@ -8,29 +8,28 @@
 }
 
 .header {
-  padding: variables.$spacing-md;
+  padding: variables.$spacing-sm;
   background-color: white;
   border-bottom: 1px solid variables.$light-gray;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: variables.$spacing-md;
-  min-height: 40px;
+  min-height: 32px;
   
 
   h2 {
     color: variables.$text-primary;
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 700;
     white-space: nowrap;
-   
+    margin: 0;
   }
 
   @media (max-width: variables.$breakpoint-md) {
     flex-direction: column;
     align-items: stretch;
     gap: variables.$spacing-sm;
-    padding: variables.$spacing-sm;
   }
 }
 
@@ -96,7 +95,6 @@
   grid-template-columns: 460px 1fr;
   gap: variables.$spacing-md;
   padding: variables.$spacing-md;
-  min-height: 0;
   height: calc(100vh - 72px);
 
   @media (max-width: variables.$breakpoint-md) {
@@ -115,7 +113,6 @@
 .error {
   color: variables.$error-color;
   font-size: 16px;
-  font-weight: 500;
   margin-bottom: variables.$spacing-sm;
 }
 

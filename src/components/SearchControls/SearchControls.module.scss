@@ -9,24 +9,6 @@
   @media (max-width: variables.$breakpoint-sm) {
     flex-direction: column;
     width: 100%;
-
-    .searchInput {
-      margin-bottom: variables.$spacing-sm;
-    }
-
-    .filterGroup {
-      width: 100%;
-      justify-content: space-between;
-
-      .filterSelect {
-        height: 32px;
-      }
-    }
-
-    .filterSelect {
-      flex: 1;
-      max-width: 200px;
-    }
   }
 }
 
@@ -37,16 +19,9 @@
   border: 1px solid rgba(variables.$dark, 0.1);
   border-radius: variables.$border-radius-sm;
   font-size: 15px;
-  font-weight: 400;
 
   &:focus {
     border-color: variables.$blue;
-  }
-
-  @media (max-width: variables.$breakpoint-sm) {
-    height: 32px;
-    font-size: 14px;
-    width: 100%;
   }
 }
 
