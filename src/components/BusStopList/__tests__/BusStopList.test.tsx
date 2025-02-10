@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { useReverseGeocode } from '../../../hooks/useReverseGeocode';
+
 import BusStopList from '..';
+import { useReverseGeocode } from '../../../hooks/useReverseGeocode';
 
 vi.mock('../../../hooks/useReverseGeocode');
 

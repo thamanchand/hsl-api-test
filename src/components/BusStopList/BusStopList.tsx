@@ -23,12 +23,11 @@ const BusStopList = ({ stops, loading, position, locationName }: BusStopListProp
         </div>
       )}
 
-      {loading ||
-        (isAddressLoading && (
-          <div className={styles.loading}>
-            <p className={styles.loadingText}>Loading...</p>
-          </div>
-        ))}
+      {(loading || isAddressLoading) && (
+        <div className={styles.loading}>
+          <p className={styles.loadingText}>Loading...</p>
+        </div>
+      )}
 
       {!loading && !isAddressLoading && stops.length === 0 && (
         <div className={styles.noStops}>

@@ -2,7 +2,7 @@ export const DEFAULT_POSITION = { lat: 60.1699, lng: 24.9384 }; // Simonkatu, He
 export const API_URL = 'https://api.digitransit.fi/routing/v2/hsl/gtfs/v1';
 export const GEOCODING_API_URL = 'https://api.digitransit.fi/geocoding/v1/reverse';
 
-export const SEARCH_RADIUS = 500; // meters
+export const SEARCH_RADIUS = 900; // meters
 
 export const DISTANCE_FILTERS = [
   { label: 'All', value: 0 },

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+
 import { GEOCODING_API_URL } from '../constants';
 
 const API_KEY = '754a004ba87c4fdd8506532327e212c0';
