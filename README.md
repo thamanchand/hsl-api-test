@@ -125,9 +125,7 @@ GitHub Repository: [github.com/thamanchand/hsl-api-task](https://github.com/tham
 - Add real-time bus arrival information on stops
 - Better state management and caching of the data
 - Add route visualization on map
-- Improve error handling and retry mechanisms
-- Implement offline support using PWA
-- Add end-to-end testing
+- Add end-to-end testing using cypress
 - Add more filtering options (e.g: zone)
 - Improve mobile experience
 
