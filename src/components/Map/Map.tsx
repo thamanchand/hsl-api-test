@@ -14,10 +14,16 @@ interface MapProps {
 
 // Custom marker icon for bus stops
 const busStopIcon = L.icon({
-  iconUrl: '/bus-marker.png',
+  iconUrl: '/bus-marker.svg',
   iconSize: [25, 25],
   iconAnchor: [12, 12],
   popupAnchor: [0, -12],
+});
+
+// Custom marker icon for the main position
+const mainPositionIcon = L.icon({
+  iconUrl: '/map-marker-radius.svg',
+  iconSize: [32, 32],
 });
 
 const MapComponent = ({
@@ -49,7 +55,10 @@ const Map = ({
         style={{ height: '100%', width: '100%', position: 'relative' }}
       >
         <div className={styles.overlay}>
-          Find nearby bus stops by dragging the map or moving the marker.
+          Find nearby bus stops by dragging the map or moving the marker
+          <div className={styles.markerIcon}>
+            <img src="/map-marker-radius.svg" alt="Map Marker" />
+          </div>
         </div>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -59,9 +68,10 @@ const Map = ({
         <Marker
           position={position}
           draggable={true}
+          icon={mainPositionIcon}
           eventHandlers={{
             dragend: (event) => {
-              const marker = event.target;
+              const marker = event.target as L.Marker;
               const newPosition = marker.getLatLng();
               onPositionChange([newPosition.lat, newPosition.lng]);
             },
