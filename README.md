@@ -1,6 +1,6 @@
 # HSL Nearby Bus Stops Finder
 
-This project leverages the HSL API to retrieve bus stops based on a specified location, assisting users in finding nearby HSL bus stops in Helsinki, Vantaa, and Espoo. It is developed using React, TypeScript, and Leaflet maps.
+This project leverages the HSL API to retrieve bus stops based on a specified location, assisting users in finding nearby HSL bus stops in Helsinki, Vantaa, and Espoo. It is developed using React, TypeScript, Graphql and Leaflet map.
 
 ## Features
 
@@ -77,12 +77,12 @@ npm run build
 
 ```
 src/
-├── components/     # React components
-├── hooks/         # Custom React hooks
-├── services/      # API services
-├── styles/        # Global styles and variables
-├── types/         # TypeScript type definitions
-└── utils/         # Utility functions
+├── components/
+├── hooks/
+├── services/
+├── styles/
+├── types/
+└── utils/
 ```
 
 ## License
