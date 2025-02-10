@@ -1,50 +1,90 @@
-# React + TypeScript + Vite
+# HSL Nearby Bus Stops Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project leverages the HSL API to retrieve bus stops based on a specified location, assisting users in finding nearby HSL bus stops in Helsinki, Vantaa, and Espoo. It is developed using React, TypeScript, and Leaflet maps.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Interactive map to find bus stops
+- Real-time location-based search
+- Distance-based filtering
+- Sort bus stop from closest to farthest
+- Reverse geocoding for address lookup
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React 19
+- TypeScript
+- GraphQL
+- Vite
+- Leaflet/React-Leaflet
+- SASS Modules
+- Vitest for testing
+- ESLint + Prettier
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/thamanchand/hsl-api-task.git
+cd hsl-api-task
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Install dependencies
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install
 ```
+
+3. Create a `.env` file in the root directory and add your HSL API key:
+
+```bash
+VITE_HSL_API_KEY=your_api_key_here
+```
+
+### Development
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+### Testing
+
+Run tests:
+
+```bash
+npm run test
+```
+
+### Building
+
+Build for production:
+
+```bash
+npm run build
+```
+
+## Project Structure
+
+```
+src/
+├── components/     # React components
+├── hooks/         # Custom React hooks
+├── services/      # API services
+├── styles/        # Global styles and variables
+├── types/         # TypeScript type definitions
+└── utils/         # Utility functions
+```
+
+## License
+
+MIT
